@@ -12,8 +12,11 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function getSeason(date) {
+  if (arguments.length == 0) {
+    return false;
+  }
   if (!date.getMonth) {
-    throw new NotImplementedError("Invalid date!");
+    throw new Error("Invalid date!");
   }
 
   if (date.getMonth() === 11 || date.getMonth() === 0 || date.getMonth() === 1) {
