@@ -19,10 +19,10 @@ function transform(arr) {
   }
   let result = [];
   for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "number") {
+    if (arr[i] != "--discard-next" && arr[i] != "--discard-prev" && arr[i] != "--double-next" && arr[i] != "--double-prev") {
       result.push(arr[i]);
     } else if (arr[i] === "--discard-next" && i < arr.length - 1) {
-      arr.splice(i + 1, 1);
+      i += 2;
     } else if (arr[i] === "--discard-prev" && i > 0) {
       result.pop();
     } else if (arr[i] === "--double-next" && i < arr.length - 1) {
