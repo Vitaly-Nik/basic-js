@@ -15,10 +15,9 @@ function getSeason(date) {
   if (arguments.length == 0) {
     return "Unable to determine the time of year!";
   }
-  if (!date.getMonth || !date) {
+  if (date instanceof Date === false || !date.getMilliseconds()) {
     throw new Error("Invalid date!");
   }
-
   if (date.getMonth() === 11 || date.getMonth() === 0 || date.getMonth() === 1) {
     return "winter";
   } else if (date.getMonth() === 2 || date.getMonth() === 3 || date.getMonth() === 4) {
